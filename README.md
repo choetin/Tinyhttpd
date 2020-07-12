@@ -12,6 +12,20 @@ Compile for Linux
   4) Uncomment the line that runs accept_request().
   5) Remove -lsocket from the Makefile.
 ```
+ 
+ 本镜像做了如下改进:
+ 		1) 在控制台显示客户端请求的文件
+		2) 重写 "cat" 函数, 原函数只能请求文本文件.
+		   重写后, 请求的文件不限制类型.
+		3) 默认主页提供一个webgl 在演示 WebGL Water Made by Evan Wallace
+
+ impovement:
+ 		1) show what the client requested in console
+ 		2) rewrite function 'cat', so that we can send
+ 		   non-plain text file to clien
+		3) add a more complex demo page in default index.html
+ modification by choetin@gmail.com
+
 
 <p>&nbsp; &nbsp; &nbsp;每个函数的作用：</p>
 <p>&nbsp; &nbsp; &nbsp;accept_request: &nbsp;处理从套接字上监听到的一个 HTTP 请求，在这里可以很大一部分地体现服务器处理请求流程。</p>
