@@ -12,6 +12,13 @@
  *  4) Uncomment the line that runs accept_request().
  *  5) Remove -lsocket from the Makefile.
  */
+/* impovement:
+ * 		1) show what the client requested in console
+ * 		2) rewrite function 'cat', so that we can send
+ * 		   non-plain text file to client
+ *
+ * modification by choetin@gmail.com
+ */
 #include <stdio.h>
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -95,6 +102,8 @@ void accept_request(void *arg)
     }
     url[i] = '\0';
 
+	printf("requesting %s from client %d \n", url, client);
+
     if (strcasecmp(method, "GET") == 0)
     {
         query_string = url;
@@ -162,14 +171,21 @@ void bad_request(int client)
 /**********************************************************************/
 void cat(int client, FILE *resource)
 {
-    char buf[1024];
+	char buf[1024];
+	int buf_read = 0;
 
-    fgets(buf, sizeof(buf), resource);
-    while (!feof(resource))
-    {
-        send(client, buf, strlen(buf), 0);
-        fgets(buf, sizeof(buf), resource);
-    }
+	memset(buf, 0, 1024);
+	fseek(resource, 0, SEEK_SET);
+
+	while(! feof(resource))
+	{
+		buf_read = fread(buf, 1, 1024, resource);
+
+		if (buf_read <= 0)
+			break;
+
+		send(client, buf, buf_read, 0);
+	}
 }
 
 /**********************************************************************/
@@ -407,7 +423,7 @@ void serve_file(int client, const char *filename)
     while ((numchars > 0) && strcmp("\n", buf))  /* read & discard headers */
         numchars = get_line(client, buf, sizeof(buf));
 
-    resource = fopen(filename, "r");
+    resource = fopen(filename, "rb");
     if (resource == NULL)
         not_found(client);
     else
