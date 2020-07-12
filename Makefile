@@ -7,3 +7,4 @@ client: simpleclient.c
 	gcc -W -Wall -o $@ $<
 clean:
 	rm httpd
+	rm client
