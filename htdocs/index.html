@@ -1,14 +1,27 @@
 <HTML>
-<TITLE>Index</TITLE>
+	<head>
+		<TITLE>Index</TITLE>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
 <BODY>
 <P>Welcome to J. David's webserver.
-<H1>CGI demo
-<FORM ACTION="color.cgi" METHOD="POST">
+<h1>CGI demo 1:</h1>
+<FORM ACTION="python.cgi" METHOD="POST">
 Enter a color: <INPUT TYPE="text" NAME="color">
 <INPUT TYPE="submit">
 <p>
-
-<div>Anathor sample page: <a href="/webgl/index.html">WebGL Water<a> Made by Evan Wallace</div>
 </FORM>
+
+<div>
+	<h1>CGI demo 2:</h1>
+	<br>
+<form action="python-post.cgi" method="post">
+站点名称: <input type="text" name="name">  <br>
+站点 URL: <input type="text" name="url" />
+<input type="submit" value="提交" />
+</form>
+</div>
+<br>
+<div>Another sample page: <a href="/webgl/index.html">WebGL Water<a> Made by Evan Wallace</div>
 </BODY>
 </HTML>
