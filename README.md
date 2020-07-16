@@ -15,15 +15,15 @@
 > * 使用python: 本机安装python同时安装cgi,cgitb模块
 
  ### 本镜像做了如下改进:
->(1) 在控制台显示客户端请求的文件
-	(2) 重写 "cat" 函数, 原函数只能请求文本文件. 重写后, 请求的文件不限制类型.
-	(3) 默认主页提供一个webgl 在演示 WebGL Water Made by Evan Wallace
+>1. 在控制台显示客户端请求的文件
+>2. 重写 "cat" 函数, 原函数只能请求文本文件. 重写后, 请求的文件不限制类型.
+>3. 默认主页提供一个webgl 在演示 WebGL Water Made by Evan Wallace
 
 ### Impovement:
 
-> (1) show what the client requested in console
-> (2) rewrite function 'cat', so that we can send non-plain text file to client
-> (3) add a more complex demo page in default index.html
+>1. show what the client requested in console
+>2. rewrite function 'cat', so that we can send non-plain text file to client
+>3. add a more complex demo page in default index.html
 
 ### Modification by choetin@gmail.com
 
