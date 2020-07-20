@@ -9,10 +9,13 @@
 >4. Uncomment the line that runs accept_request().
 >5. Remove -lsocket from the Makefile.
 
+---
 
 ### 测试CGI:
 > * 使用perl: 本机安装PERL同时安装perl-cgi模块
 > * 使用python: 本机安装python同时安装cgi,cgitb模块
+
+---
 
  ### 本镜像做了如下改进:
 >1. 在控制台显示客户端请求的文件
@@ -26,6 +29,8 @@
 >3. add a more complex demo page in default index.html
 
 ### Modification by choetin@gmail.com
+
+---
 
 ###每个函数的作用：
 
@@ -46,6 +51,7 @@
 >startup: 初始化 httpd 服务，包括建立套接字，绑定端口，进行监听等。
 >unimplemented: 返回给浏览器表明收到的 HTTP 请求所用的 method 不被支持。
 
+
 ###工作流程
 
 >1. 服务器启动，在指定端口或随机选取端口绑定 httpd 服务。
@@ -64,7 +70,7 @@
 
 >10. 关闭与浏览器的连接，完成了一次 HTTP 请求与回应，因为 HTTP 是无连接的。
 
-
+---
 
 ###以下内容来自源作者:
 ```text
